@@ -3,7 +3,7 @@
  * @Date: 2021-10-15 14:27:30
  * @Description: 
  * @FilePath: \wehgu-vue-admin\src\components\layout\SideBar.vue
- * @LastEditTime: 2022-03-26 21:17:53
+ * @LastEditTime: 2022-04-07 18:20:08
  * @LastEditors: Please set LastEditors
 -->
 <template>
@@ -19,7 +19,7 @@
       unique-opened
       router
     >
-      <el-sub-menu v-show="item.children.length !== null" :index="item.permId + ''" v-for="(item, index) in isMenuList" :key="index">
+      <el-sub-menu :index="item.permId + ''" v-for="(item, index) in isMenuList" :key="index">
         <template #title>
           <i :class="item.icon"></i>
           <!-- 文本 -->

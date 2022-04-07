@@ -3,7 +3,7 @@
  * @Date: 2021-10-24 22:51:08
  * @Description: 
  * @FilePath: \wehgu-vue-admin\src\views\system\User.vue
- * @LastEditTime: 2022-03-19 03:15:48
+ * @LastEditTime: 2022-04-08 00:10:02
  * @LastEditors: Please set LastEditors
 -->
 <template>
@@ -34,33 +34,46 @@
 
       <!-- 微信用户列表区域 -->
       <el-table :data="customerList" border stripe>
+        <el-table-column type="expand">
+          <template #default="props">
+            <p>真实姓名: {{ props.row.state }}</p>
+            <p>学院: {{ props.row.address }}</p>
+            <p>专业: {{ props.row.zip }}</p>
+            <p>学号: {{ props.row.city }}</p>
+          </template>
+        </el-table-column>
         <el-table-column type="index"></el-table-column>
-        <el-table-column prop="nickname" label="昵称"></el-table-column>
-        <el-table-column prop="telephone" label="电话"></el-table-column>
-        <el-table-column label="状态">
+        <el-table-column prop="avatar" label="头像" align="center">
+          <template v-slot="scope">
+            <el-avatar :size="50" :src="scope.row.avatar" />
+          </template>
+        </el-table-column>
+        <el-table-column prop="nickname" label="昵称" align="center"></el-table-column>
+        <el-table-column prop="telephone" label="电话" align="center"></el-table-column>
+        <el-table-column label="状态" align="center">
           <template v-slot="scope">
             <el-switch v-model="scope.row.status" active-value="1" inactive-value="0" @change="lockCustomer(scope.row)"></el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="已绑定微信">
+        <el-table-column label="已绑定微信" align="center">
           <template v-slot="scope">
-            <el-tag v-if="scope.row.unionId !== null" type="success">已绑定</el-tag>
+            <el-tag v-if="scope.row.unionId !== scope.row.userDetailUuid" type="success">已绑定</el-tag>
             <el-tag v-else type="info">未绑定</el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="已实名认证">
+        <el-table-column label="已实名认证" align="center">
           <template v-slot="scope">
-            <el-tag v-if="scope.row.userUuid !== null" type="success">已认证</el-tag>
+            <el-tag v-if="scope.row.authenticatio" type="success">已认证</el-tag>
             <el-tag v-else type="danger">未认证</el-tag>
           </template>
         </el-table-column>
-        <el-table-column prop="roles" label="角色"
+        <el-table-column prop="roles" label="角色" align="center"
           ><template v-slot="scope">
             <el-tag closable @close="removeRoleById()">{{ scope.row.roleName }}</el-tag>
           </template></el-table-column
         >
 
-        <el-table-column label="操作" width="400px">
+        <el-table-column label="操作" width="250px" align="center">
           <template v-slot="scope">
             <!-- 编辑按钮 -->
             <el-tooltip class="item" effect="dark" content="编辑用户" placement="top" :enterable="false">

@@ -3,7 +3,7 @@
  * @Date: 2021-11-10 14:29:35
  * @Description:
  * @FilePath: \wehgu-vue-admin\src\utils\myFunction.js
- * @LastEditTime: 2022-03-26 21:15:36
+ * @LastEditTime: 2022-04-07 18:17:48
  * @LastEditors: Please set LastEditors
  */
 // import Layout from '../views/Layout'
@@ -66,7 +66,7 @@ export const getAsyncRouter = (permList) => {
       authList.push(item.auth)
     }
     // 是否存在子集
-    if (item.children && item.children.length) {
+    if (item.children !== null && item.children.length > 0) {
       getAsyncRouter(item.children)
     }
 
