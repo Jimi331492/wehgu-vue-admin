@@ -3,7 +3,7 @@
  * @Date: 2022-04-07 18:55:40
  * @Description:
  * @FilePath: \wehgu-vue-admin\src\api\mp.js
- * @LastEditTime: 2022-04-07 19:21:35
+ * @LastEditTime: 2022-04-11 08:34:59
  * @LastEditors: Please set LastEditors
  */
 
@@ -49,6 +49,16 @@ export function savePost(data) {
   })
 }
 
+//批量新增保存帖子
+export function batchSavePost(data) {
+  //传数据写入data，不传则不需要
+  return request({
+    url: '/post/batchSavePost',
+    method: 'post',
+    data,
+  })
+}
+
 //删除标签
 export function deleteTag(data) {
   //传数据写入data，不传则不需要
@@ -63,7 +73,7 @@ export function deleteTag(data) {
 export function deletePost(data) {
   //传数据写入data，不传则不需要
   return request({
-    url: `/post/deleteTag?UID=${data}`,
+    url: `/post/deletePost`,
     method: 'delete',
     data,
   })
