@@ -3,7 +3,7 @@
  * @Date: 2022-04-07 18:51:49
  * @Description: 
  * @FilePath: \wehgu-vue-admin\src\views\mp\Post.vue
- * @LastEditTime: 2022-04-11 08:32:58
+ * @LastEditTime: 2022-04-11 12:00:47
  * @LastEditors: Please set LastEditors
   <template v-slot="scope">
             <div class="avatar-box">
@@ -104,7 +104,7 @@
         <el-table-column type="selection" width="55" align="center" />
         <el-table-column type="index" align="center"></el-table-column>
         <el-table-column prop="telephone" label="发布人" align="center" width="100px"></el-table-column>
-        <el-table-column prop="content" label="内容" width="400" align="center"></el-table-column>
+        <el-table-column prop="content" label="内容" align="center"></el-table-column>
         <el-table-column prop="tag" label="标签" width="80" align="center"></el-table-column>
         <el-table-column prop="pictureNum" label="图片数量" width="55" align="center"></el-table-column>
         <el-table-column prop="star" label="点赞数量" width="55" align="center"></el-table-column>
